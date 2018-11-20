@@ -9,6 +9,7 @@ var NoteEdit = require('./note-edit');
 
 var Note = Backbone.View.extend({
   el: '#note',
+
   initialize: function(ops) {
     this.id = ops.id || 0;
     this.model = ops.model || {};
