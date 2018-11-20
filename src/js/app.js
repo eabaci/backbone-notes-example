@@ -11,5 +11,9 @@ Backbone.$(function() {
   app.noteslistView = new NotesList({});
   app.noteView = new Note({});
 
-  Backbone.history.start();
+  app.collection.once('reset', function() {
+    Backbone.history.start();
+  });
+
+  app.collection.fetch({ reset: true });
 });

@@ -8,9 +8,9 @@ describe('app.Models.Note', function() {
     var model = new NoteModels({});
     expect(model).to.be.ok;
     expect(model).to.be.an('object');
-    expect(model.get('title')).to.equal('Backbone Test');
-    expect(model.get('description')).to.contain('Backbone');
-    expect(model.get('author')).to.equal('Ersin Abaci');
+    expect(model.get('title')).to.equal('');
+    expect(model.get('description')).to.equal('');
+    expect(model.get('author')).to.equal('');
   });
 
   it('sets passed attributes', function() {

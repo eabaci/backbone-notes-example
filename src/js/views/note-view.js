@@ -19,9 +19,9 @@ var NoteView = Backbone.View.extend({
   render: function() {
     this.$el.html(
       this.template({
-        title: this.model.get('title'),
-        author: this.model.get('author'),
-        description: this.model.get('description')
+        title: this.model.get('title') || '',
+        author: this.model.get('author') || '',
+        description: this.model.get('description') || ''
       })
     );
     return this;
