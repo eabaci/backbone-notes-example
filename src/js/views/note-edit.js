@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
 
-NoteEdit = Backbone.View.extend({
+var NoteEdit = Backbone.View.extend({
   className: 'note-edit',
   tagName: 'div',
   events: {
