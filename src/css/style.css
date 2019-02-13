@@ -1,0 +1,22 @@
+#app {
+  width: 60%;
+  margin: auto;
+  background: #e6e2e2;
+  padding: 40px;
+}
+
+.notes-filter {
+  padding-bottom: 40px;
+}
+
+.notes-add {
+  padding-bottom: 40px;
+}
+
+.notes-item btn {
+  margin: 0 10px;
+}
+
+.note-edit .row {
+  margin: 10px;
+}

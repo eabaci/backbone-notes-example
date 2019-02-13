@@ -30,7 +30,9 @@ var NotesFilterView = Backbone.View.extend({
     var regExp = new RegExp(value, 'gi');
 
     this.notesFilterList = this.collection.models.filter(function(model) {
-      return model.attributes.title.match(regExp);
+      let title = model.attributes.title;
+      let author = model.attributes.author;
+      return title.match(regExp) || author.match(regExp);
     });
     this.trigger('change', { notesFilterList: this.notesFilterList });
   }
