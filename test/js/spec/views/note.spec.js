@@ -6,6 +6,7 @@ var NoteCollection = require('../../../../src/js/collections/notes');
 var Note = require('../../../../src/js/views/note');
 var NoteView = require('../../../../src/js/views/note-view');
 var NoteEdit = require('../../../../src/js/views/note-edit');
+var NotesNavView = require('../../../../src/js/views/note-nav');
 
 describe('app views note', function() {
   before(function() {
@@ -103,18 +104,27 @@ describe('app views note', function() {
       this.view.noteEditView = new NoteEdit({});
       this.view.noteEditView.$el.hide = sinon.spy();
       this.view.noteEditView.$el.show = sinon.spy();
+
+      this.view.notesNavView = new NotesNavView({});
+      this.view.notesNavView.update = sinon.spy();
     });
 
     it('with the view parameter', function() {
       this.view.update('view');
       assert(this.view.noteView.$el.show.called);
       assert(this.view.noteEditView.$el.hide.called);
+
+      assert(this.view.notesNavView.update.called);
+      assert(this.view.notesNavView.update.calledWith('view'));
     });
 
     it('with the edit parameter', function() {
       this.view.update('edit');
       assert(this.view.noteView.$el.hide.called);
       assert(this.view.noteEditView.$el.show.called);
+
+      assert(this.view.notesNavView.update.called);
+      assert(this.view.notesNavView.update.calledWith('edit'));
     });
   });
 });

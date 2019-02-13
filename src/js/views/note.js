@@ -35,7 +35,10 @@ var Note = Backbone.View.extend({
 
   render: function() {
     this.model = this.collection.get(this.id);
-    this.notesNavView = new NotesNavView({ model: this.model });
+    this.notesNavView = new NotesNavView({
+      model: this.model,
+      router: this.router
+    });
     this.$el.html(this.notesNavView.$el);
     this.noteView = new NoteView({ model: this.model });
     this.noteEditView = new NoteEdit({ model: this.model });
@@ -45,6 +48,7 @@ var Note = Backbone.View.extend({
   },
 
   update: function(action) {
+    this.notesNavView.update(action);
     if (action === 'view') {
       this.noteView.$el.show();
       this.noteEditView.$el.hide();

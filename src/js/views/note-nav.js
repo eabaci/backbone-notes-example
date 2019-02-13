@@ -27,6 +27,11 @@ var NotesNavView = Backbone.View.extend({
     return this;
   },
 
+  update: function(action) {
+    this.$el.find('.nav-item a').removeClass('active');
+    this.$el.find('.' + action + ' a').addClass('active');
+  },
+
   backToHome: function(event) {
     event.preventDefault();
     var loc = [''].join('/');

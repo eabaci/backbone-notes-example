@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 var Backbone = require('backbone');
 var NotesCollection = require('./collections/notes');
 var Note = require('./views/note');
