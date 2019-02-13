@@ -2,6 +2,7 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 var app = require('../namespace');
+var notesAddViewTemplate = require('../templates/notes-add-view-template.html');
 
 var NotesAddView = Backbone.View.extend({
   className: 'notes-add',
@@ -12,9 +13,7 @@ var NotesAddView = Backbone.View.extend({
 
   counter: 0,
 
-  template: _.template(
-    '<div class="container"><div class="row"><input class="form-control noteTitle" value="placeholder"/><a href="#" class="btn btn-primary addNote">Add Note</a></div></div>'
-  ),
+  template: _.template(notesAddViewTemplate),
 
   initialize: function(ops) {
     this.collection = ops.collection || app.collection;

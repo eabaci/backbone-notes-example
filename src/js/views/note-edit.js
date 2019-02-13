@@ -1,17 +1,16 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
+var noteEditViewTemplate = require('../templates/note-edit-view-template.html');
 
 var NoteEdit = Backbone.View.extend({
   className: 'note-edit',
   tagName: 'div',
   events: {
-    'change input': 'saveTitle',
-    'change textarea': 'saveDescription'
+    'change input': 'saveInput',
+    'change textarea': 'saveInput'
   },
 
-  template: _.template(
-    '<div class="container"><div class="row"><div class="col"><input class="form-control" value="<%- title %>" /></div></div><div class="row"><div class="col"><textarea class="form-control"><%- description %></textarea></div></div></div>'
-  ),
+  template: _.template(noteEditViewTemplate),
 
   initialize: function(ops) {
     this.model = ops.model || {};
@@ -31,14 +30,10 @@ var NoteEdit = Backbone.View.extend({
     return this;
   },
 
-  saveTitle: function(event) {
-    var title = event.target.value;
-    this.model.set({ title: title });
-  },
-
-  saveDescription: function(event) {
-    var description = event.target.value;
-    this.model.set({ description: description });
+  saveInput: function(event) {
+    var value = event.target.value;
+    var name = event.target.name;
+    this.model.set(name, value);
   }
 });
 

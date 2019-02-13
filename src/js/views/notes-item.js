@@ -2,6 +2,7 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 var app = require('../namespace');
+var notesItemViewTemplate = require('../templates/notes-item-view-template.html');
 
 var NotesItemView = Backbone.View.extend({
   className: 'notes-item',
@@ -12,9 +13,7 @@ var NotesItemView = Backbone.View.extend({
     'click  .delete': 'delteNote'
   },
 
-  template: _.template(
-    '<div class="container"><div class="row"><div class="col view"><h3> <%- title %> , <%- author %></h3></div><div class="col"><a href="" class="btn btn-primary edit">Edit</a><a href="" class="btn btn-primary delete">Delete</a></div></div></div>'
-  ),
+  template: _.template(notesItemViewTemplate),
 
   initialize: function(ops) {
     this.router = ops.router || app.router;
