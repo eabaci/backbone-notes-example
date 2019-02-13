@@ -67,9 +67,9 @@ describe('app views note', function() {
     it('with empty note', function() {
       this.view.collection.add({});
 
-      var $view = $('.nav-item.view');
-      var $edit = $('.nav-item.edit');
-      var $delete = $('.nav-item.delete');
+      var $view = $('.nav-item.view a');
+      var $edit = $('.nav-item.edit a');
+      var $delete = $('.nav-item.delete a');
 
       expect($view.text()).to.equal('View');
       expect($edit.text()).to.equal('Edit');

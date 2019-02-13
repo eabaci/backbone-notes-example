@@ -1,13 +1,12 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
+var noteViewTemplate = require('../templates/note-view-template.html');
 
 var NoteView = Backbone.View.extend({
   className: 'note-view',
   tagName: 'div',
 
-  template: _.template(
-    '<div class="container"><div class="row"><div class="col"><h1><span class="title"><%- title %></span> , <span class="author"><%- author %></span></h1></div><div class="row"><div class="col"><p class="description"><%- description %></p></div></div></div></div>'
-  ),
+  template: _.template(noteViewTemplate),
 
   initialize: function(ops) {
     this.model = ops.model || {};

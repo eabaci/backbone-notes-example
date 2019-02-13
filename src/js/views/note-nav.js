@@ -1,6 +1,7 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
 var app = require('../namespace');
+var noteNavViewTemplate = require('../templates/note-nav-view-template.html');
 
 var NotesNavView = Backbone.View.extend({
   className: 'note-nav',
@@ -12,9 +13,7 @@ var NotesNavView = Backbone.View.extend({
     'click  .delete': 'deleteNote'
   },
 
-  template: _.template(
-    '<div class="container"><div class="row"><div class="col back"><h3> Notes </h3></div><div class="col"><ul class="nav nav-tabs"><li class="nav-item view"><a class="nav-link active" href="#">View</a></li><li class="nav-item edit"><a class="nav-link" href="#">Edit</a></li><li class="nav-item delete"><a class="nav-link" href="#">Delete</a></li></ul></div></div></div>'
-  ),
+  template: _.template(noteNavViewTemplate),
 
   initialize: function(ops) {
     this.router = ops.router || app.router;
